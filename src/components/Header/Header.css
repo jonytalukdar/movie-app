@@ -1,0 +1,14 @@
+.header {
+  width: 100%;
+  background-color: rgb(43, 38, 56);
+  color: white;
+  height: 70px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3vw;
+  box-shadow: 0 1px 5px black;
+  z-index: 100;
+}
