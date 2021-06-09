@@ -11,4 +11,5 @@
   font-size: 3vw;
   box-shadow: 0 1px 5px black;
   z-index: 100;
+  cursor: pointer;
 }

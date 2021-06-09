@@ -1,3 +1,4 @@
+import { Badge } from '@material-ui/core';
 import React from 'react';
 import { img_300 } from '../../config/Config';
 import { unavailable } from '../../config/Config';
@@ -7,6 +8,10 @@ const SingleContent = ({ content }) => {
   console.log(content);
   return (
     <div className="media">
+      <Badge
+        badgeContent={content.vote_average}
+        color={content.vote_average > 6 ? 'primary' : 'secondary'}
+      />
       <img
         className="poster"
         src={
