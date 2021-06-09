@@ -1,19 +1,28 @@
-html {
+* {
   scroll-behavior: smooth;
 }
+
 .app {
   min-height: 100vh;
-  background-color: #49445a;
+  background-color: #39445a;
   color: white;
-  padding-top: 90px;
+  padding-top: 100px;
   padding-bottom: 70px;
 }
 
-.page-title {
+.pageTitle {
+  text-transform: uppercase;
   display: flex;
   justify-content: center;
-  font-size: 30px;
-  margin-bottom: 12px;
-  text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
+  font-size: 2vw;
+  border-radius: 50px;
+  padding-bottom: 20px;
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  .pageTitle {
+    font-size: 6.4vw;
+  }
 }

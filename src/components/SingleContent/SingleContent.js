@@ -1,31 +1,33 @@
-import { Badge } from '@material-ui/core';
-import React from 'react';
-import { img_300 } from '../../config/Config';
-import { unavailable } from '../../config/Config';
-import './SingleContent.css';
+import { Badge } from "@material-ui/core";
+import { img_300, unavailable } from "../../config/config";
+import "./SingleContent.css";
+import ContentModal from "../ContentModal/ContentModal";
 
-const SingleContent = ({ content }) => {
+const SingleContent = ({
+  id,
+  poster,
+  title,
+  date,
+  media_type,
+  vote_average,
+}) => {
   return (
-    <div className="media">
+    <ContentModal media_type={media_type} id={id}>
       <Badge
-        badgeContent={content.vote_average}
-        color={content.vote_average > 6 ? 'primary' : 'secondary'}
+        badgeContent={vote_average}
+        color={vote_average > 6 ? "primary" : "secondary"}
       />
       <img
         className="poster"
-        src={
-          content.poster_path
-            ? `${img_300}/${content.poster_path}`
-            : unavailable
-        }
-        alt={content.title || content.name}
+        src={poster ? `${img_300}${poster}` : unavailable}
+        alt={title}
       />
-      <b className="title">{content.title || content.name}</b>
+      <b className="title">{title}</b>
       <span className="subTitle">
-        {content.media_type === 'tv' ? 'Tv Series' : 'Movies'}
-        <span className="subTitle">{content.release_date}</span>
+        {media_type === "tv" ? "TV Series" : "Movie"}
+        <span className="subTitle">{date}</span>
       </span>
-    </div>
+    </ContentModal>
   );
 };
 

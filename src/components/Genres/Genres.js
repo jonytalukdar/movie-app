@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
-import { Chip } from '@material-ui/core';
+import { Chip } from "@material-ui/core";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Genres = ({
-  type,
   selectedGenres,
   setSelectedGenres,
   genres,
   setGenres,
+  type,
   setPage,
 }) => {
   const handleAdd = (genre) => {
@@ -29,40 +29,40 @@ const Genres = ({
       `https://api.themoviedb.org/3/genre/${type}/list?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
     );
     setGenres(data.genres);
-    // console.log(genres);
   };
 
   useEffect(() => {
     fetchGenres();
 
     return () => {
-      setGenres({});
+      setGenres({}); // unmounting
     };
+    // eslint-disable-next-line
   }, []);
 
   return (
-    <div style={{ padding: '6px 0' }}>
-      {selectedGenres &&
-        selectedGenres.map((genre) => (
-          <Chip
-            label={genre.name}
-            size="small"
-            color="primary"
-            clickable
-            style={{ margin: 2 }}
-            onDelete={() => handleRemove(genre)}
-          />
-        ))}
-      {genres &&
-        genres.map((genre) => (
-          <Chip
-            label={genre.name}
-            size="small"
-            clickable
-            style={{ margin: 2 }}
-            onClick={() => handleAdd(genre)}
-          />
-        ))}
+    <div style={{ padding: "6px 0" }}>
+      {selectedGenres.map((genre) => (
+        <Chip
+          style={{ margin: 2 }}
+          label={genre.name}
+          key={genre.id}
+          color="primary"
+          clickable
+          size="small"
+          onDelete={() => handleRemove(genre)}
+        />
+      ))}
+      {genres.map((genre) => (
+        <Chip
+          style={{ margin: 2 }}
+          label={genre.name}
+          key={genre.id}
+          clickable
+          size="small"
+          onClick={() => handleAdd(genre)}
+        />
+      ))}
     </div>
   );
 };
