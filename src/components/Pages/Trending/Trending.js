@@ -3,7 +3,6 @@ import './Trending.css';
 import axios from 'axios';
 import SingleContent from '../../SingleContent/SingleContent';
 import CustomPagination from '../../Pagination/CustomPagination';
-
 require('dotenv').config();
 
 const Trending = () => {
@@ -16,7 +15,6 @@ const Trending = () => {
     );
 
     setContent(data.results);
-    // console.log(data.results);
   };
 
   useEffect(() => {

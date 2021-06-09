@@ -5,7 +5,6 @@ import { unavailable } from '../../config/Config';
 import './SingleContent.css';
 
 const SingleContent = ({ content }) => {
-  console.log(content);
   return (
     <div className="media">
       <Badge
