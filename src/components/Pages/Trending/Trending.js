@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import './Trending.css';
 import axios from 'axios';
+import SingleContent from '../../SingleContent/SingleContent';
 require('dotenv').config();
 
 const Trending = () => {
@@ -11,7 +13,7 @@ const Trending = () => {
     );
 
     setContent(data.results);
-    console.log(data);
+    // console.log(data.results);
   };
 
   useEffect(() => {
@@ -21,6 +23,12 @@ const Trending = () => {
   return (
     <div>
       <span className="page-title">Trending</span>
+      <div className="trending">
+        {content &&
+          content.map((content) => (
+            <SingleContent key={content.id} content={content} />
+          ))}
+      </div>
     </div>
   );
 };
